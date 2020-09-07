@@ -1,0 +1,15 @@
+[Unit]
+Description=tic2mqtt
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/USER/tic2mqtt/
+ExecStart=python /home/USER/tic2mqtt/tic2mqtt.py -b localhost
+
+User=USER
+RestartSec=10
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
